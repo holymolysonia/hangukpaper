@@ -1,0 +1,453 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'Racing Sans One';
+    src: url('font/RacingSansOne-Regular.eot');
+    src: url('font/RacingSansOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('font/RacingSansOne-Regular.woff2') format('woff2'),
+        url('font/RacingSansOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('font/Pretendard-Bold.eot');
+    src: url('font/Pretendard-Bold.eot?#iefix') format('embedded-opentype'),
+        url('font/Pretendard-Bold.woff2') format('woff2'),
+        url('font/Pretendard-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('font/Pretendard-Regular.eot');
+    src: url('font/Pretendard-Regular.eot?#iefix') format('embedded-opentype'),
+        url('font/Pretendard-Regular.woff2') format('woff2'),
+        url('font/Pretendard-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+html {
+    font-size: 62.5%;
+    /* font-size:10px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    color: #333;
+    line-height: 1;
+    font-family: 'Pretendard';
+}
+
+#wrap.bg::before {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 19;
+}
+
+
+/* 📢📢header📢📢 */
+header {
+    height: 100px;
+}
+
+header .inner {
+    height: 100%;
+    max-width: 1600px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .inner h1 {
+    font-size: 1;
+}
+
+header .inner h1 img {
+    height: 70px;
+}
+
+header .inner .pc.gnb ul {
+    height: 100%;
+    display: flex;
+    line-height: 100px;
+}
+
+header .inner .pc.gnb ul .depth01 {
+    width: 100%;
+    margin-left: 4rem;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    white-space: nowrap;
+}
+
+header .inner .pc.gnb ul .depth01 .depth02 {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    top: 100px;
+    left: 0;
+    background-color: #004994;
+    line-height: 1;
+    padding: 20px 30px 50px;
+    color: #fff;
+    font-size: 1.8rem;
+    border-radius: 0 30px 30px 30px;
+    display: none;
+    z-index: 20;
+}
+
+header .inner .pc.gnb ul .depth01:hover .depth02 {
+    display: block;
+}
+
+header .inner .pc.gnb ul .depth01 .depth02 li {
+    padding-top: 30px;
+    position: relative;
+}
+
+header .inner .pc.gnb ul .depth01 .depth02 li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: 0.4s ease-in-out;
+}
+
+header .inner .pc.gnb ul .depth01 .depth02 li:hover::after {
+    width: 100%;
+}
+
+header .inner .pc.right_gnb {
+    display: flex;
+}
+
+header .inner .pc.right_gnb li {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: 3rem;
+}
+
+header .inner .pc.right_gnb li select {
+    font-size: 2rem;
+    border: 0;
+    background-color: inherit;
+    font-family: 'Pretendard';
+    font-weight: bold;
+}
+
+header .inner .pc.right_gnb li:nth-child(1) {
+    position: relative;
+}
+
+header .inner .pc.right_gnb li:nth-child(1)::before {
+    content: '';
+    background: url('../img/icon_lang.png') center center / cover no-repeat;
+    width: 3rem;
+    height: 3rem;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -30%;
+}
+
+header .inner .pc.right_gnb li img {
+    height: 3rem;
+}
+
+.tab.mobile.menu_open {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.tab.mobile.menu_open img {
+    height: 20px;
+}
+
+.tab.mobile.m_gnb {
+    width: 70%;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 20;
+    overflow-y: auto;
+}
+
+.tab.mobile.m_gnb::-webkit-scrollbar {
+    display: none;
+}
+
+.tab.mobile.m_gnb .menu_close {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.tab.mobile.m_gnb .menu_close img {
+    height: 30px;
+}
+
+.tab.mobile.m_gnb ul {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.tab.mobile.m_gnb .depth01 {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.tab.mobile.m_gnb .depth02 {
+    color: #333;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.tab.mobile.m_gnb .depth02 li {
+    padding-top: 30px;
+}
+
+.tab.mobile.menu_open {
+    display: none;
+}
+
+.tab.mobile {
+    display: none;
+}
+
+@media all and (max-width:1655px) {
+    html {
+        font-size: 60%;
+    }
+
+    header .inner h1 img {
+        height: 50px;
+    }
+
+    header .inner .pc.right_gnb li img {
+        height: 3rem;
+    }
+
+}
+
+@media all and (max-width:1480px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media all and (max-width:1024px) {
+    html {
+        font-size: 50%;
+    }
+
+    header {
+        height: 70px;
+    }
+
+    header .inner {
+        max-width: 1024px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    header .inner .pc.right_gnb {
+        display: none;
+    }
+
+    .tab.mobile {
+        display: block;
+    }
+
+    .tab.mobile.menu_open {
+        display: flex;
+    }
+}
+
+@media all and (max-width:767px) {
+    body {
+        max-width: 767px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+    }
+
+    .tab.mobile.m_gnb .depth01 {
+        font-size: 30px;
+    }
+
+    .tab.mobile.m_gnb .depth02 {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width:414px) {
+    body {
+        max-width: 414px;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+    }
+
+    .tab.mobile.m_gnb .depth01 {
+        font-size: 25px;
+    }
+}
+
+@media all and (max-width:320px) {
+    body {
+        max-width: 320px;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+    }
+
+    .tab.mobile.m_gnb .depth01 {
+        font-size: 20px;
+    }
+
+    .tab.mobile.m_gnb .depth02 {
+        font-size: 16px;
+    }
+}
+
+/* 📢📢footer📢📢 */
+footer {
+    width: 100%;
+    background-color: #363636;
+    color: #fff;
+    padding: 8rem 0;
+}
+
+footer .inner {
+    max-width: 1600px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+footer .inner .footer_menu {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 80px;
+}
+
+footer .inner .footer_menu .foot_depth01 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+footer .inner .footer_menu .foot_depth01 .foot_depth02 li {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+footer .inner .foot_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .inner .foot_wrap .foot_info li {
+    display: inline-block;
+    margin-right: 6rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+footer .inner .foot_wrap .family_site {
+    font-family: 'Pretendard';
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: inherit;
+    color: #fff;
+    font-size: 16px;
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+
+footer .inner .foot_wrap .family_site option {
+    font-family: 'Pretendard';
+    color: #333;
+}
+
+footer .inner .info li {
+    display: inline-block;
+    font-size: 2rem;
+    color: #A6A6A6;
+    position: relative;
+    padding-right: 50px;
+}
+
+footer .inner .info li::after {
+    content: '';
+    width: 1px;
+    height: 10px;
+    background-color: #A6A6A6;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translate(0, -50%);
+}
+
+footer .inner .info01 {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+footer .inner .info01 li:last-child:after {
+    display: none;
+}
+
+footer .inner .info02 li:last-child:after {
+    display: none;
+}
+
+footer .inner p {
+    font-size: 2rem;
+    color: #A6A6A6;
+    margin-top: 10rem;
+}

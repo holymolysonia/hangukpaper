@@ -309,8 +309,7 @@ header .inner .pc.right_gnb li img {
 }
 
 @media all and (max-width:767px) {
-    body {
-        max-width: 767px;
+    header .inner {
         width: calc(100% - 40px);
         margin: 0 auto;
     }
@@ -325,8 +324,7 @@ header .inner .pc.right_gnb li img {
 }
 
 @media all and (max-width:414px) {
-    body {
-        max-width: 414px;
+    header .inner {
         width: calc(100% - 40px);
         margin: 0 auto;
     }
@@ -337,8 +335,7 @@ header .inner .pc.right_gnb li img {
 }
 
 @media all and (max-width:320px) {
-    body {
-        max-width: 320px;
+    header .inner {
         width: calc(100% - 20px);
         margin: 0 auto;
     }
@@ -388,6 +385,7 @@ footer .inner .footer_menu .foot_depth01 .foot_depth02 li {
 footer .inner .foot_wrap {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 footer .inner .foot_wrap .foot_info li {
@@ -395,6 +393,7 @@ footer .inner .foot_wrap .foot_info li {
     margin-right: 6rem;
     font-size: 2rem;
     font-weight: bold;
+    line-height: 3;
 }
 
 footer .inner .foot_wrap .family_site {
@@ -419,6 +418,7 @@ footer .inner .info li {
     color: #A6A6A6;
     position: relative;
     padding-right: 50px;
+    line-height: 2;
 }
 
 footer .inner .info li::after {
@@ -435,7 +435,6 @@ footer .inner .info li::after {
 
 footer .inner .info01 {
     margin-top: 5rem;
-    margin-bottom: 2rem;
 }
 
 footer .inner .info01 li:last-child:after {
@@ -450,4 +449,33 @@ footer .inner p {
     font-size: 2rem;
     color: #A6A6A6;
     margin-top: 10rem;
+    line-height: 2;
+}
+
+@media all and (max-width:1024px) {
+    footer .inner .footer_menu {
+        display: none;
+    }
+}
+
+@media all and (max-width:895px) {
+    footer .inner .foot_wrap .family_site {
+        height: 30px;
+    }
+}
+
+@media all and (max-width:493px) {
+    footer .inner .foot_wrap .family_site {
+        display: none;
+    }
+}
+
+@media all and (max-width:320px) {
+    footer .inner .foot_wrap .foot_info li {
+        font-size: 13px;
+    }
+
+    footer .inner .info li {
+        font-size: 13px;
+    }
 }

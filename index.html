@@ -68,6 +68,24 @@
                 }//depth01[i].onclick end
             }//for end
 
+            let products = document.getElementsByClassName('products')[0];
+            let tabMenu = products.querySelectorAll('.tab_menu li');
+            let item = products.querySelectorAll('.item_wrap');
+
+            for (let i = 0; i < tabMenu.length; i++) {
+                tabMenu[i].onclick = function () {
+                    tabMenu.forEach(function (menu) {
+                        menu.classList.remove('on');
+                    })//tabMenu.forEach end 
+                    tabMenu[i].classList.add('on');
+
+                    item.forEach(function (item) {
+                        item.classList.remove('on');
+                    })//item.forEach end
+                    item[i].classList.add('on');
+                }//tabMenu.onclick end
+            }
+
             let globTrad = document.querySelector('.global');
             let global = globTrad.querySelector('.global');
             let traditional = globTrad.querySelector('.traditional');
@@ -451,6 +469,265 @@
                 </div><!-- .item end -->
             </div><!-- .inner end -->
         </section><!-- .philosophy end -->
+
+        <section class="products">
+            <div class="inner">
+                <h3>주요제품</h3>
+                <ul class="tab_menu">
+                    <li class="on">miillk</li>
+                    <li>ARTE</li>
+                    <li>Macaron</li>
+                    <li>KAce</li>
+                    <li>Green Shield</li>
+                </ul><!-- .tab_menu end -->
+                <div class="item_wrap on">
+                    <div class="banner">
+                        <figure>
+                            <img src="img/product_visual01.jpg" alt="miillk" />
+                        </figure>
+                        <div>
+                            <h4>miillk</h4>
+                            <p>Your Daily Choice, miilk</p>
+                        </div>
+                    </div><!-- .title end -->
+                    <div class="item">
+                        <div class="text">
+                            <p class="slogan">당신의 일상과 함께 하는 복사지, Your Daily Choice, miilk</p>
+                            <p>사무실 또는 가정에서! 모든 복사지 사용자의 다양한 목적과 요구를 충족시키는 대한민국 1등 복사지 miilk<br />
+                                합리적이고(Reasonable), 신뢰할 수 있으며(Reliable), 자연스럽고(Natural), 다양한 선택(Selectable)이
+                                가능한 특성을 지닌 miilk는 다재다능함(Versatility)을 추구하며 고객의 일상과 늘 함께 하는 국민 브랜드로 거듭나겠습니다.</p>
+                        </div><!-- .text end -->
+                        <ul class="keyword">
+                            <li>
+                                <div>
+                                    <p>Reasonable
+                                        <span>합리적인</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Reliable
+                                        <span>신뢰할 수 있는</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Natural
+                                        <span>자연스러운</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Selectable
+                                        <span>다양한 선택이 가능한</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul><!-- .keyword -->
+                    </div><!-- .item end -->
+                </div><!-- .item_wrap / 1 end -->
+
+                <div class="item_wrap">
+                    <div class="banner">
+                        <figure>
+                            <img src="img/product_visual02.jpg" alt="miillk" />
+                        </figure>
+                        <div>
+                            <h4>ARTE</h4>
+                        </div>
+                    </div><!-- .title end -->
+                    <div class="item">
+                        <div class="text">
+                            <p class="slogan">당신의 작업을 예술로, 최고급 러프글로스지 ARTE</p>
+                            <p>스페인어로 ‘예술’을 뜻하는 ‘ARTE’의 어원처럼 당신의 작업물을 예술로 만들어 드립니다.
+                                국내 최고 수준의 품질을 자랑하는 ARTE는 캔버스와 같은 고급스럽고 자연스러운 표면 질감이 특징으로,
+                                빳빳하고 탁월한 두께감과 높은 인쇄건조성으로 당신의 작업물을 오롯이 담아냅니다.</p>
+                        </div><!-- .text end -->
+                        <ul class="keyword">
+                            <li>
+                                <div>
+                                    <p>Excellent
+                                        <span>탁월한</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Luxurious
+                                        <span>고급스러운</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Appropriate
+                                        <span>적합한</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>High Bulk
+                                        <span>두께감있는</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul><!-- .keyword -->
+                    </div><!-- .item end -->
+                </div><!-- .item_wrap / 2 end -->
+
+                <div class="item_wrap">
+                    <div class="banner">
+                        <figure>
+                            <img src="img/product_visual03.jpg" alt="miillk" />
+                        </figure>
+                        <div>
+                            <h4>Macaron</h4>
+                        </div>
+                    </div><!-- .title end -->
+                    <div class="item">
+                        <div class="text">
+                            <p class="slogan">마카롱처럼 도톰하고 컬러풀한 한국제지 하이벌크(High Bulk)지 Macaron</p>
+                            <p>도톰하고 화려한 색상을 자랑하는 마카롱처럼,
+                                한국제지 하이벌크(High Bulk)지 Macaron은 뛰어난 색 발현성으로 당신의 작업물을 더욱 풍성하고 화려하게 만들어 드립니다.
+                                Macaron은 부피감을 극대화하여 두께를 도톰하게 유지하면서도 가벼운 것이 특징으로 동일한 두께의 제작물도 더 가볍고 경제적으로 만들 수 있으며,
+                                평활도가 높아 다양한 인쇄물에 사용할 수 있습니다.</p>
+                        </div><!-- .text end -->
+                        <ul class="keyword">
+                            <li>
+                                <div>
+                                    <p>High Bulk
+                                        <span>도톰한</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Light
+                                        <span>가벼운</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Natural
+                                        <span>자연스러운</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Reasonable
+                                        <span>합리적인</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul><!-- .keyword -->
+                    </div><!-- .item end -->
+                </div><!-- .item_wrap / 3 end -->
+
+                <div class="item_wrap">
+                    <div class="banner">
+                        <figure>
+                            <img src="img/product_visual04.jpg" alt="miillk" />
+                        </figure>
+                        <div>
+                            <h4>KAce</h4>
+                        </div>
+                    </div><!-- .title end -->
+                    <div class="item">
+                        <div class="text">
+                            <p class="slogan">100% 최고급 펄프로 만든 한국제지 All-Pulp Board, KAce(케이스)</p>
+                            <p>한국제지 KAce는 한국제지의 패키지용지(hanKukpaper’s cAse)라는 뜻과
+                                한국제지의 명수(Hankukpaper’s Ace)라는 의미로 패키지용지 분야에 대한 한국제지의 자신감을 의미합니다.
+                                한국제지 KAce는 인쇄용지 전용 초지기에서 생산되어 인쇄적성과 건조성이 탁월하며 높은 강도와 두께, 뛰어난 가공적성으로
+                                고급 케이스(화장품, 의약품, 식품 등)에 사용됩니다.</p>
+                        </div><!-- .text end -->
+                        <ul class="keyword">
+                            <li>
+                                <div>
+                                    <p>High Bulk
+                                        <span>두께감있는</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Glossy
+                                        <span>광택있는</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Luxurious
+                                        <span>고급스러운</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Solid
+                                        <span>단단한</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul><!-- .keyword -->
+                    </div><!-- .item end -->
+                </div><!-- .item_wrap / 4 end -->
+
+                <div class="item_wrap">
+                    <div class="banner">
+                        <figure>
+                            <img src="img/product_visual05.jpg" alt="miillk" />
+                        </figure>
+                        <div>
+                            <h4>Green Shield</h4>
+                        </div>
+                    </div><!-- .title end -->
+                    <div class="item">
+                        <div class="text">
+                            <p class="slogan">환경을 생각하는 착한 포장재, 한국제지 ‘Green Shield’</p>
+                            <p>한국제지 Green Shield는 착한 종이 포장재로 플라스틱인 PE 코팅이 필요 없고,
+                                종이 원료로 재사용이 가능한 제품입니다.</p>
+                        </div><!-- .text end -->
+                        <ul class="keyword">
+                            <li>
+                                <div>
+                                    <p>No Polyethylene
+                                        <span>Non PE 코팅</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Recyclable
+                                        <span>재활용</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Food Contact Safety
+                                        <span>식품 안전성</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>Solid
+                                        <span>단단한</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul><!-- .keyword -->
+                    </div><!-- .item end -->
+                </div><!-- .item_wrap / 5 end -->
+            </div><!-- .inner end -->
+        </section><!-- .products end -->
 
         <section class="news">
             <div class="inner">

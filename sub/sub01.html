@@ -1,12 +1,695 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>한국제지 소식</title>
+    <!-- XEICON -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="css/sub01.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            let body = document.getElementsByTagName('body')[0];
+            let hd = document.getElementsByTagName('header')[0];
+            let menuOpenBtn = hd.getElementsByClassName('menu_open')[0];
+            let menuCloseBtn = hd.getElementsByClassName('menu_close')[0];
+            let mGnb = hd.getElementsByClassName('m_gnb')[0];
+
+            mGnb.style.display = 'none';
+            menuOpenBtn.onclick = function () {
+                if (mGnb.style.display = 'none') {
+                    mGnb.style.display = 'block';
+                    body.classList.add('bg');
+                }
+            }//menuOpenBtn.onclick end
+            menuCloseBtn.onclick = function () {
+                if (mGnb.style.display = 'block') {
+                    mGnb.style.display = 'none'
+                    body.classList.remove('bg');
+                }
+            }//menuCloseBtn.onclick end
+
+            let mobileMenu = document.getElementsByClassName('m_gnb')[0];
+            let depth01 = mobileMenu.getElementsByClassName('depth01');
+            let depth02 = mobileMenu.getElementsByClassName('depth02');
+
+            //모든 depth02에게 display:none 시키기
+            for (let i = 0; i < depth02.length; i++) {
+                //console.log(depth02); //0,1,2,3,4
+                //depth02.length = 5
+                depth02[i].style.display = 'none';
+            }//for end
+
+            //depth01 클릭 시 depth02 나타남
+            for (let i = 0; i < depth01.length; i++) {
+                //console.log(depth01[i].children);
+                //depth01이 가지고 있는 자식들 중에서 1번째 자식이 depth02
+                //index : 1
+                let depth02Children = depth01[i].children[1];
+
+                depth01[i].onclick = function () {
+                    if (depth02Children.style.display == 'none') {
+                        depth02Children.style.display = 'block';
+                        depth01[i].style.color = '#004994';
+                    } else {
+                        depth02Children.style.display = 'none';
+                        depth01[i].style.color = '#333';
+                    }
+                }//depth01[i].onclick end
+            }//for end
+
+            let tabMenuWrap = document.querySelector('.tabmenu_wrap');
+            let tabMenu = tabMenuWrap.querySelectorAll('.tabmenu_wrap li')
+            let news = document.querySelector('.news');
+            let newsTitle = news.querySelectorAll('.title h3');
+            let newsList = news.querySelectorAll('.news .list');
+
+            for (let i = 0; i < tabMenu.length; i++) {
+                tabMenu[i].onclick = function () {
+
+                    tabMenu.forEach(function (menu) {
+                        menu.classList.remove('on');
+                    })
+                    newsTitle.forEach(function (title) {
+                        title.classList.remove('on');
+                    })
+                    newsList.forEach(function (list) {
+                        list.classList.remove('on');
+                    })
+                    tabMenu[i].classList.add('on');
+                    newsTitle[i].classList.add('on');
+                    newsList[i].classList.add('on');
+                }//tabMenu[i].onclick end
+            }
+            let numBtn = news.querySelectorAll('.numbtn_wrap .btn');
+            for (let i = 0; i < numBtn.length; i++) {
+                numBtn[i].onclick = function () {
+                    numBtn.forEach(function (numBtn) {
+                        numBtn.classList.remove('on');
+                    })
+                    numBtn[i].classList.add('on');
+                }
+            }//for end
+
+        }//window.onload end
+    </script>
 </head>
+
 <body>
-    
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="../index.html">
+                    <img src="../img/hankukci.png" alt="한국제지 로고" />
+                </a>
+            </h1>
+            <nav class="pc gnb">
+                <ul>
+                    <li class="depth01">
+                        <a href="#">기업소개</a>
+                        <ul class="depth02">
+                            <li><a href="#">기업 정보</a></li>
+                            <li><a href="#">CEO 인사말</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">관계사</a></li>
+                            <li><a href="#">사업장 소개</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">제품정보</a>
+                        <ul class="depth02">
+                            <li><a href="#">제품소식</a></li>
+                            <li><a href="#">제품소개</a></li>
+                            <li><a href="#">주요제품</a></li>
+                            <li><a href="#">제조공정</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01"><a href="#">전자공고</a></li>
+                    <li class="depth01">
+                        <a href="#">지속가능경영</a>
+                        <ul class="depth02">
+                            <li><a href="#">환경경영</a></li>
+                            <li><a href="#">안전경영</a></li>
+                            <li><a href="#">사회공헌</a></li>
+                            <li><a href="#">윤리경영</a></li>
+                            <li><a href="#">R&D</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">홍보센터</a>
+                        <ul class="depth02">
+                            <li><a href="#">한국제지 소식</a></li>
+                            <li><a href="#">CI/BI 소개</a></li>
+                            <li><a href="#">한국제지 역사관</a></li>
+                            <li><a href="#">미디어센터</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">인재채용</a>
+                        <ul class="depth02">
+                            <li><a href="#">인재상</a></li>
+                            <li><a href="#">인사제도</a></li>
+                            <li><a href="#">직무소개</a></li>
+                            <li><a href="#">채용정보</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                </ul>
+            </nav><!-- .pc .gnb end -->
+
+            <ul class="pc right_gnb">
+                <li>
+                    <select>
+                        <option>한국어/KR</option>
+                        <option>영어/ENG</option>
+                    </select>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon_facebook.png" alt="페이스북" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/icon_instagram.png" alt="인스타그램" />
+                    </a>
+                </li>
+            </ul><!-- .pc .right_gnb end -->
+
+            <span class="tab mobile menu_open">
+                <img src="../img/icon_menu_open.png" alt="메뉴열기" />
+            </span>
+            <nav class="tab mobile m_gnb">
+                <span class="menu_close">
+                    <img src="../img/icon_menu_close.png" alt="메뉴닫기" />
+                </span>
+                <ul>
+                    <li class="depth01">
+                        <a href="#">기업소개</a>
+                        <ul class="depth02">
+                            <li><a href="#">기업 정보</a></li>
+                            <li><a href="#">CEO 인사말</a></li>
+                            <li><a href="#">연혁</a></li>
+                            <li><a href="#">관계사</a></li>
+                            <li><a href="#">사업장 소개</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">제품정보</a>
+                        <ul class="depth02">
+                            <li><a href="#">제품소식</a></li>
+                            <li><a href="#">제품소개</a></li>
+                            <li><a href="#">주요제품</a></li>
+                            <li><a href="#">제조공정</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01"><a href="#">전자공고</a></li>
+                    <li class="depth01">
+                        <a href="#">지속가능경영</a>
+                        <ul class="depth02">
+                            <li><a href="#">환경경영</a></li>
+                            <li><a href="#">안전경영</a></li>
+                            <li><a href="#">사회공헌</a></li>
+                            <li><a href="#">윤리경영</a></li>
+                            <li><a href="#">R&D</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">홍보센터</a>
+                        <ul class="depth02">
+                            <li><a href="#">한국제지 소식</a></li>
+                            <li><a href="#">CI/BI 소개</a></li>
+                            <li><a href="#">한국제지 역사관</a></li>
+                            <li><a href="#">미디어센터</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                    <li class="depth01">
+                        <a href="#">인재채용</a>
+                        <ul class="depth02">
+                            <li><a href="#">인재상</a></li>
+                            <li><a href="#">인사제도</a></li>
+                            <li><a href="#">직무소개</a></li>
+                            <li><a href="#">채용정보</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="news_visual">
+            <figure>
+                <img src="../img/anthony-esau-N2zk9yXjmLA-unsplash.jpg" alt="한국제지 소식" />
+            </figure>
+            <div class="text">
+                <h2>한국제지 소식</h2>
+                <p>한국제지의 소식을 알려드립니다.</p>
+            </div><!-- .text end -->
+            <div class="tabmenu_wrap">
+                <ul>
+                    <li class="on">전체</li>
+                    <li>브랜드소식</li>
+                    <li>기업소식</li>
+                </ul>
+            </div><!-- .tabmenu_wrap -->
+        </section><!-- .news_visual end -->
+
+        <section class="news">
+            <div class="inner">
+                <div class="title">
+                    <h3 class="on">전체소식</h3>
+                    <h3>브랜드소식</h3>
+                    <h3>기업소식</h3>
+                    <div class="search_wrap">
+                        <select>
+                            <option selected>전체검색</option>
+                            <option>브랜드소식</option>
+                            <option>기업소식</option>
+                        </select>
+                        <div class="search_bar">
+                            <i class="xi-search"></i>
+                            <input class="search_input" type="search" />
+                        </div><!-- .search_bar -->
+                    </div><!-- .search_wrap end -->
+                </div><!-- .title end -->
+
+                <div class="list all on">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img01.jpg" alt="한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상</strong>
+                                <span>2023.04.19</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img02.jpg" alt="한국제지, 소상공인 카페들과 함께 그린실드 친환경 프로모션 진행" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 소상공인 카페들과 함께 그린실드 친환경 프로모션 진행</strong>
+                                <span>2023.02.13</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img03.jpg" alt="한국제지, 제지연합회와 함께 친환경 인식제고 캠페인 진행" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 제지연합회와 함께 친환경 인식제고 캠페인 진행</strong>
+                                <span>2022.12.12</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img04.jpg" alt="한국제지, 최고급 러프글로스지 ARTE로 인쇄한 2023년 기업 캘린더 출시" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 최고급 러프글로스지 ARTE로 인쇄한 2023년 기업 캘린더 출시</strong>
+                                <span>2022.12.12</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img05.jpg"
+                                    alt="한국제지,  <2022 TV조선 경영대상> ESG 경영 환경부문 대상 및 환경부장관상 수상" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, <2022 TV조선 경영대상> ESG 경영 환경부문 대상 및 환경부장관상 수상</strong>
+                                <span>2022.11.25</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img06.jpg"
+                                    alt="한국제지, PE free 친환경 종이 포장재 ‘·그린실드’로 ESG 협력 진심을 담다" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>한국제지, PE free 친환경 종이 포장재 ‘·그린실드’로 ESG 협력 진심을 담다</strong>
+                                <span>2023.04.19</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img07.jpg" alt="국산 복사지 한국제지 밀크, 독도 사랑 실천 영훈초등학교에 독도 패키지 밀크 기부" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>국산 복사지 한국제지 밀크, 독도 사랑 실천 영훈초등학교에 독도 패키지 밀크 기부</strong>
+                                <span>2022.04.28</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img08.jpg" alt="밀크 & 독도 콜라보 이벤트 국산 복사지 밀크 독도 패키지로 만나보세요." />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>밀크 & 독도 콜라보 이벤트 국산 복사지 밀크 독도 패키지로 만나보세요.</strong>
+                                <span>2022.04.06</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list / all end -->
+
+                <div class="list brand">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img01.jpg" alt="한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상</strong>
+                                <span>2023.04.19</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img06.jpg"
+                                    alt="한국제지, PE free 친환경 종이 포장재 ‘·그린실드’로 ESG 협력 진심을 담다" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>한국제지, PE free 친환경 종이 포장재 ‘·그린실드’로 ESG 협력 진심을 담다</strong>
+                                <span>2022.04.28</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img07.jpg" alt="국산 복사지 한국제지 밀크, 독도 사랑 실천 영훈초등학교에 독도 패키지 밀크 기부" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>국산 복사지 한국제지 밀크, 독도 사랑 실천 영훈초등학교에 독도 패키지 밀크 기부</strong>
+                                <span>2022.04.28</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_brand_img01.png" alt="[이벤트] 쿠팡에서 밀크 퓨어 리뷰 남기고 상품권 받자!" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>[이벤트] 쿠팡에서 밀크 퓨어 리뷰 남기고 상품권 받자!</strong>
+                                <span>2022.02.28</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_brand_img02.jpg" alt="국내 유일 생산 복사지 밀크, 복사지로 ‘독도’ 알린다" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>국내 유일 생산 복사지 밀크, 복사지로 ‘독도’ 알린다</strong>
+                                <span>2022.02.15</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_brand_img03.jpg"
+                                    alt="국내유일생산 복사지 밀크,10. 25 독도의 날 기념하여 (사)독도사랑운동본부에 복사지 기부" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>국내유일생산 복사지 밀크,10. 25 독도의 날 기념하여 (사)독도사랑운동본부에 복사지 기부</strong>
+                                <span>2021.10.25</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_brand_img04.jpg" alt="밀크, 공영방송 KBS에 출연하다" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>밀크, 공영방송 KBS에 출연하다</strong>
+                                <span>2021.10.08</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_brand_img05.jpg" alt="[이벤트] 한국제지, 항균 복사지 밀크 퓨어 다다익선 프로모션 진행" />
+                            </figure>
+                            <div class="text">
+                                <span>브랜드소식</span>
+                                <strong>[이벤트] 한국제지, 항균 복사지 밀크 퓨어 다다익선 프로모션 진행.</strong>
+                                <span>2021.10.01</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list /brand end -->
+
+                <div class="list office">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img01.jpg" alt="한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 친환경 포장재 그린실드, ‘제17회 대한민국 패키징대전’ 수상</strong>
+                                <span>2023.04.19</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img02.jpg" alt="한국제지, 소상공인 카페들과 함께 그린실드 친환경 프로모션 진행" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 소상공인 카페들과 함께 그린실드 친환경 프로모션 진행</strong>
+                                <span>2023.02.13</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img03.jpg" alt="한국제지, 제지연합회와 함께 친환경 인식제고 캠페인 진행" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 제지연합회와 함께 친환경 인식제고 캠페인 진행</strong>
+                                <span>2022.12.12</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img04.jpg" alt="한국제지, 최고급 러프글로스지 ARTE로 인쇄한 2023년 기업 캘린더 출시" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 최고급 러프글로스지 ARTE로 인쇄한 2023년 기업 캘린더 출시</strong>
+                                <span>2022.12.12</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_img05.jpg"
+                                    alt="한국제지,  <2022 TV조선 경영대상> ESG 경영 환경부문 대상 및 환경부장관상 수상" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, <2022 TV조선 경영대상> ESG 경영 환경부문 대상 및 환경부장관상 수상</strong>
+                                <span>2022.11.25</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_office_img01.jpg" alt="한국제지, 새로운 도약을 위해 CI 교체" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 새로운 도약을 위해 CI 교체</strong>
+                                <span>2021.10.01</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_office_img02.jpg"
+                                    alt="국산 복사지 한국제지 밀크, 독도 사랑 실천 영훈초등학교에 독도 패키지 밀크 기부" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 월드비전과 함께 제리캔 챌린지 진행</strong>
+                                <span>2021.07.01</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="../img/news_office_img03.jpg" alt="한국제지, 플라스틱 저감 캠페인 ‘고고챌린지’ 동참" />
+                            </figure>
+                            <div class="text">
+                                <span>기업소식</span>
+                                <strong>한국제지, 플라스틱 저감 캠페인 ‘고고챌린지’ 동참</strong>
+                                <span>2021.05.27</span>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .list /office end -->
+
+                <div class="pagemove">
+                    <div class="move_num_wrap">
+                        <a href="#">
+                            <i class="xi-angle-left-min"></i>
+                        </a>
+                        <div class="numbtn_wrap">
+                            <a class="btn on" href="javascript:void(0);">1</a>
+                            <a class="btn" href="javascript:void(0);">2</a>
+                            <a class="btn" href="javascript:void(0);">3</a>
+                            <a class="btn" href="javascript:void(0);">4</a>
+                            <a class="btn" href="javascript:void(0);">5</a>
+                            <a class="btn" href="javascript:void(0);">6</a>
+                            <a class="btn" href="javascript:void(0);">7</a>
+                            <a class="btn" href="javascript:void(0);">8</a>
+                            <a class="btn" href="javascript:void(0);">9</a>
+                            <a class="btn" href="javascript:void(0);">10</a>
+                        </div><!-- .numbtn_wrap end -->
+                        <a href="#">
+                            <i class="xi-angle-right-min"></i>
+                        </a>
+                    </div><!-- .move_num_wrap end -->
+                </div><!-- .pagemove end -->
+            </div><!-- .inner end -->
+        </section><!-- .news -->
+    </main>
+
+    <footer>
+        <div class="inner">
+            <ul class="footer_menu">
+                <li class="foot_depth01"><a href="#">기업소개</a>
+                    <ul class="foot_depth02">
+                        <li><a href="#">기업정보</a></li>
+                        <li><a href="#">CEO 인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">관계사</a></li>
+                        <li><a href="#">사업장 소개</a></li>
+                    </ul><!-- .foot_depth02 end -->
+                </li>
+                <li class="foot_depth01"><a href="#">제품정보</a>
+                    <ul class="foot_depth02">
+                        <li><a href="#">제품소식</a></li>
+                        <li><a href="#">제품소개</a></li>
+                        <li><a href="#">주요제품</a></li>
+                        <li><a href="#">제조공장</a></li>
+                    </ul><!-- .foot_depth02 end -->
+                </li>
+                <li class="foot_depth01"><a href="#">전자공고</a></li>
+                <li class="foot_depth01"><a href="#">지속가능경영</a>
+                    <ul class="foot_depth02">
+                        <li><a href="#">환경경영</a></li>
+                        <li><a href="#">안전경영</a></li>
+                        <li><a href="#">사회공헌</a></li>
+                        <li><a href="#">윤리경영</a></li>
+                        <li><a href="#">R&D</a></li>
+                    </ul><!-- .foot_depth02 end -->
+                </li>
+                <li class="foot_depth01"><a href="#">홍보센터</a>
+                    <ul class="foot_depth02">
+                        <li><a href="#">한국제지 소식</a></li>
+                        <li><a href="#">CI/BI 소개</a></li>
+                        <li><a href="#">한국제지 역사관</a></li>
+                        <li><a href="#">미디어센터</a></li>
+                    </ul><!-- .foot_depth02 end -->
+                </li>
+                <li class="foot_depth01"><a href="#">인재채용</a>
+                    <ul class="foot_depth02">
+                        <li><a href="#">인재상</a></li>
+                        <li><a href="#">인사제도</a></li>
+                        <li><a href="#">직무소개</a></li>
+                        <li><a href="#">채용정보</a></li>
+                    </ul><!-- .foot_depth02 end -->
+                </li>
+            </ul><!-- .footer_menu end -->
+
+            <div class="foot_wrap">
+                <ul class="foot_info">
+                    <li><a href="#">개인정보취급방침</a></li>
+                    <li><a href="#">이메일무단수집거부</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                    <li><a href="#">찾아오시는 길</a></li>
+                    <li><a href="#">고객문의</a></li>
+                </ul><!-- .foot_info end -->
+                <select class="family_site">
+                    <option selected>Family site</option>
+                    <option>해성그룹</option>
+                    <option>계양전기</option>
+                    <option>한국팩키지</option>
+                    <option>원창포장공업</option>
+                    <option>해성여자고등학교</option>
+                    <option>한지네트워크</option>
+                    <option>장가항법인</option>
+                    <option>해성DS</option>
+                    <option>해성산업</option>
+                    <option>세하</option>
+                    <option>해성국제컨벤션고등학교</option>
+                </select><!-- .family_site end -->
+            </div><!-- .foot_wrap end -->
+
+            <ul class="info info01">
+                <li>대표자 : 안재호</li>
+                <li>법인명 : 한국제지㈜</li>
+                <li>주소 : 06178 서울특별시 강남구 테헤란로 504 (대치동, 해성빌딩) 18, 19, 20층</li>
+            </ul><!-- .info01 end -->
+            <ul class="info info02">
+                <li>사업자등록번호 : 836-88-01648</li>
+                <li>업종 : 지류, 펄프, 임가공</li>
+                <li>업태 : 제조, 도매, 서비스</li>
+            </ul><!-- .info02 end -->
+
+            <P>COPYRIGHT ⓒ 2017 HANKUK PAPER MFG.CO.LTD. All RIGHTS RESERVED</P>
+        </div><!-- .inner end -->
+    </footer>
 </body>
+
 </html>

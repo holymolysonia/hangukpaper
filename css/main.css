@@ -783,7 +783,12 @@
         margin-right: 10px;
     }
 }
-
+@media all and (max-width:372px){
+    .products .inner .item_wrap .banner h4 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+}
 @media all and (max-width:348px) {
     .products .inner .tab_menu li {
         font-size: 13px;
